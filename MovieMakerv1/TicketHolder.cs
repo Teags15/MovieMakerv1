@@ -42,6 +42,40 @@ namespace MovieMakerv1
             this.age = newAge;
         }
 
+        public int GetTickets()
+        { 
+            return numberTickets;  
+        
+        }
+        
+        //get the snack order
+        public List<int> GetSnackOrder()
+        {
+            return snackOrder;
+        
+        }
+        
+        //get the snack order quantities
+        public List<int> GetSnackQuantity()
+        { 
+            return snackQuantity;
+        
+        }
+        //get the drink order
+        public List<int> GetDrinkOrder()
+        {
+            return drinkOrder;
+
+        }
+
+        //get the drink order quantities
+        public List<int> GetDrinkQuantity()
+        {
+            return drinkQuantity;
+
+        }
+
+
         //sets the value of the private credit variable
         public void SetCredit(bool newPaymentType)
         {
