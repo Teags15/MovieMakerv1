@@ -28,6 +28,13 @@ namespace MovieMakerv1
             
         }
 
+        //return the seat limit
+        public int GetSeatLimit()
+        {
+            return SEATLIMIT;
+        
+        }
+
         //adds a ticket holder into the ticketHolders list
         public void AddTicketHolder(TicketHolder ticketHolder) 
         {
@@ -35,6 +42,18 @@ namespace MovieMakerv1
         
         
         }
+
+        //stores the snacks and drinks ordered by the most recent ticket holder
+        public void AddSnacksDrinksOrder(List<int> sOrder, List<int> sQuantity, List<int> dOrder, List<int> dQuantity)
+        {
+            //if index = list.Count -1 then it would refer to the last element in the list
+            ticketHolders[ticketHolders.Count - 1].AddSnacks(sOrder, sQuantity);
+            ticketHolders[ticketHolders.Count - 1].AddDrinks(dOrder, dQuantity);
+        
+        
+        
+        }
+
 
         //returns true if purchaser's age meets age requirements else it returns false
         public bool CheckAge(int buyerAge, int ageLimitIndex)
@@ -213,7 +232,7 @@ namespace MovieMakerv1
         public float CalculateTotalPrice()
         {
             //total profit = ticket profit + (snack and drink gross profit -  cost of snacks and drinks)
-            return CalculateTicketGrossProfit() + (CalculateItemsGrossProfit() - CalculateSnackDrinkTotalCost());
+            return (float)Math.Round(CalculateTicketGrossProfit() + (CalculateItemsGrossProfit() - CalculateSnackDrinkTotalCost()),2);
         }
 
         //returns string listing the total number snacks ordered
@@ -223,7 +242,7 @@ namespace MovieMakerv1
 
             for (int snackIndex = 0; snackIndex < availableSnacks.Count; snackIndex++)
             {
-                sumary += availableSnacks[snackIndex] + "\tX\t" + SumItemsSold("snacks")[snackIndex] + "\n";
+                sumary += availableSnacks[snackIndex] + "   \tX\t" + SumItemsSold("snacks")[snackIndex] + "\n";
             }
 
             return sumary;
@@ -238,7 +257,7 @@ namespace MovieMakerv1
 
         //returns a string collecting all the values stored in the private variables
         public override string ToString()
-        {
+        { 
             return base.ToString();
         }
 

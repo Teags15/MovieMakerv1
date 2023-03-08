@@ -43,7 +43,7 @@ namespace MovieMakerv1
 
             string name = "Hannah";
             int age = 12;
-            int tickets = 151;
+            int tickets = 3;
 
             if (tm.CheckAge(age, 0))
             {
@@ -63,10 +63,12 @@ namespace MovieMakerv1
 
 
             }
-            
 
-            
+            tm.AddSnacksDrinksOrder(s, sq, d, dq);
 
+    
+            Console.WriteLine ($"Total Number of Seats sold: {tm.GetSeatLimit()-tm.CalculateAvailableSeats()}\n");
+            
             Console.ReadLine();
         }
     }
